@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import useApi from '../../../../../core/hooks/useApi'
 import HttpMethod from '../../../../../core/hooks/useApi/httpMethod.enum'
 import HttpStatus from '../../../../../core/hooks/useApi/httpStatus.enum'
+import LoginContext from '../../data/contexts/login'
 import AuthEndpoints from '../../data/remote/endpoints'
 import LoginPayload from '../../domain/payloads/login.payload'
 import LoginResponse from '../../domain/responses/login.response'
@@ -10,10 +11,9 @@ import LoginResponse from '../../domain/responses/login.response'
 import * as St from './styles'
 
 const Login = () => {
-  let history = useHistory()
+  const history = useHistory()
+  const context = useContext(LoginContext)
   const api = useApi<LoginResponse>(AuthEndpoints.login, HttpMethod.POST)
-
-  const signInNavigation = async () => history.push("/proposal")
   
   const signIn = async () => {
     const payload: LoginPayload = {
@@ -22,8 +22,6 @@ const Login = () => {
     }
 
     const response = await api.callApi(payload)
-
-    console.log('response -> ', response)
 
     if (response.status == HttpStatus.SUCCESS) {
       alert('ok -> ' + String(api.data))
@@ -37,6 +35,10 @@ const Login = () => {
   return (
       <St.MyOwnContainer color='blue'>
         <span>LOGIN</span>
+        <br/>
+        <span>Name: {context.state.name}</span>
+        <br/>
+        <br/>
         <button onClick={signIn}>LOGIN</button>
       </St.MyOwnContainer>
   )   
