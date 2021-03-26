@@ -1,5 +1,5 @@
 import Routes from "./routes";
-import GlobalContext from "./data/store";
+import GlobalContext from "./data/context";
 
 const App = () => {
   return (
