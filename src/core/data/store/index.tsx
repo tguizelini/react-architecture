@@ -1,5 +1,11 @@
-const AppStore = ({ children }) => {
-    return <div>{children}</div>
+import React from 'react'
+
+const GlobalContext = ({ children }) => {
+    return (
+        <>
+            {children}
+        </>
+    )
 }
 
-export default AppStore
+export default GlobalContext

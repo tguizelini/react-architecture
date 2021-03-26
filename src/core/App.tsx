@@ -1,11 +1,11 @@
 import Routes from "./routes";
-import AppStore from "./data/store";
+import GlobalContext from "./data/store";
 
 const App = () => {
   return (
-      <AppStore>
+      <GlobalContext>
         <Routes />
-      </AppStore>
+      </GlobalContext>
   )
 }
 
