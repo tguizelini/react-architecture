@@ -1,0 +1,1 @@
+export const validateEmail = (value: string): boolean => value ? true : false
