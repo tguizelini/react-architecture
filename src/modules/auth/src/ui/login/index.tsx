@@ -29,7 +29,7 @@ const Login = () => {
       alert('error')
     }
 
-    history.push("/proposal")
+    history.push("/profile")
   }
 
   return (
