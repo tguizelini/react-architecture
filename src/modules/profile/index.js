@@ -1,17 +1,17 @@
 //routes
-import ProposalForm from "./src/ui/form"
+import ProposalForm from "./src/ui/detail"
 import ProposalList from "./src/ui/list"
 
-const ProposalModule = {
-    name: 'Proposta',
+const ProfileModule = {
+    name: 'Profile',
     routes: [
         {
-            path: '/proposal',
+            path: '/profile',
             private: false,
             component: ProposalList
         },
         {
-            path: '/proposal/form',
+            path: '/profile/defailt',
             private: false,
             component: ProposalForm
         }

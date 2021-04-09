@@ -1,3 +1,3 @@
-const BASE_URL = "http://myUrlMarota.com.br"
+const BASE_URL = "https://jsonplaceholder.typicode.com/"
 
 export default BASE_URL
