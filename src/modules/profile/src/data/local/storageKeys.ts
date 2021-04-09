@@ -1,5 +1,5 @@
-const ProposalKeys = {
-    PROPOSAL_XXX: "PROPOSAL_XXX"
+const ProfileKeys = {
+    ID_PROFILE: "KEY_ID_PROFILE"
 }
 
-export default ProposalKeys
+export default ProfileKeys

@@ -1,18 +1,18 @@
-export const ProposalActionTypes = {
-    LIST: "PROPOSAL_LIST"
+export const ProfileActionTypes = {
+    LIST: "Profile_LIST"
 }
 
-interface IProposalStore {
-    proposalList?: any[]
+interface IProfileStore {
+    ProfileList?: any[]
 }
 
-const INITIAL_VALUE: IProposalStore = {
-    proposalList: []
+const INITIAL_VALUE: IProfileStore = {
+    ProfileList: []
 }
 
-const ProposalReducer = (state = INITIAL_VALUE, action) => {
+const ProfileReducer = (state = INITIAL_VALUE, action) => {
     switch(action.type) {
-        case ProposalActionTypes.LIST:
+        case ProfileActionTypes.LIST:
             return {
                 ...state,
                 ...action.payload
@@ -22,4 +22,4 @@ const ProposalReducer = (state = INITIAL_VALUE, action) => {
     }
 }
 
-export default ProposalReducer
+export default ProfileReducer

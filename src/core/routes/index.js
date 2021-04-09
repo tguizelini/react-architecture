@@ -1,7 +1,7 @@
 import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
 
 import AuthModule from "../../modules/auth";
-import ProposalModule from "../../modules/proposal";
+import ProfileModule from "../../modules/profile";
 
 /**************************************************************************** */
 /**************************************************************************** */
@@ -9,7 +9,7 @@ import ProposalModule from "../../modules/proposal";
 // Add novos módulos aqui // 
 const AppModules = [
   AuthModule,
-  ProposalModule
+  ProfileModule
 ]
 /**************************************************************************** */
 /**************************************************************************** */

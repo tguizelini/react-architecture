@@ -1,6 +1,6 @@
 //routes
-import ProposalForm from "./src/ui/detail"
-import ProposalList from "./src/ui/list"
+import ProfileDetail from "./src/ui/detail"
+import ProfileList from "./src/ui/list"
 
 const ProfileModule = {
     name: 'Profile',
@@ -8,14 +8,14 @@ const ProfileModule = {
         {
             path: '/profile',
             private: false,
-            component: ProposalList
+            component: ProfileList
         },
         {
-            path: '/profile/defailt',
+            path: '/profile/detail',
             private: false,
-            component: ProposalForm
+            component: ProfileDetail
         }
     ]
 }
 
-export default ProposalModule
+export default ProfileModule
