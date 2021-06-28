@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { useState } from 'react';
-import StorageKeys from '../../data/local/storageKeys';
+import StorageKeys from '../../data/storage/storageKeys';
 import HttpHeader from './httpHeader.model';
 import HttpMethod from './httpMethod.enum';
 import HttpResponse from './httpResponse.model';
