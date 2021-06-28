@@ -1,6 +1,6 @@
-const AuthKeys = {
+const Keys = {
     LOGIN: "LOGIN_LOGIN",
     PASSWORD: "LOGIN_PASSWORD"
 }
 
-export default AuthKeys
+export default Keys

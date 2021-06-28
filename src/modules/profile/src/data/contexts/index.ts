@@ -11,13 +11,13 @@ const INITIAL_VALUE: IProfileStore = {
 }
 
 const ProfileReducer = (state = INITIAL_VALUE, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case ProfileActionTypes.LIST:
             return {
                 ...state,
                 ...action.payload
             }
-        default: 
+        default:
             return state
     }
 }

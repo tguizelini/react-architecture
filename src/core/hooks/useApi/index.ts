@@ -70,14 +70,14 @@ function useApi<T>(
     try {
       const res = await fetch(url, options)
         .then((data) => {
-          return { 
-            data: data.json(), 
+          return {
+            data: data.json(),
             status: data?.status || HttpStatus.SUCCESS
           }
         })
         .catch((e) => {
           return {
-            data: e, 
+            data: e,
             status: HttpStatus.SERVER_ERROR
           }
         });

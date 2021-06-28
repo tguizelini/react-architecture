@@ -1,12 +1,11 @@
 import React from 'react'
-
-import * as St from './styles'
+import DS from '../../../../design-system'
 
 const PasswordRecovery = () => {
     return (
-        <St.MyOwnContainer co>
+        <DS.Container>
             <h2>Recuperar senha</h2>
-        </St.MyOwnContainer>
+        </DS.Container>
     )
 }
 

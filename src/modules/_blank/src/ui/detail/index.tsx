@@ -1,12 +1,12 @@
 import React from 'react'
 import DS from '../../../../design-system'
 
-interface IProfileDetailParams {
+interface IBlankDetailParams {
     idProfile?: number
 }
 
-const ProfileDetail: React.FC<IProfileDetailParams> = ({ idProfile }) => {
+const BlankDetail: React.FC<IBlankDetailParams> = ({ idProfile }) => {
     return <DS.Container>idProfile: {idProfile}</DS.Container>
 }
 
-export default ProfileDetail
+export default BlankDetail

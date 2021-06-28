@@ -1,7 +1,7 @@
 import React from 'react'
 import { LoginContextProvider } from '../../../modules/auth/src/data/contexts/login'
 
-const GlobalContext = ({ children }) => {
+const GlobalContext: React.FC = ({ children }) => {
     return (
         <>
             <LoginContextProvider>
