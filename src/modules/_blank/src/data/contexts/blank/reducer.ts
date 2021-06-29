@@ -1,4 +1,5 @@
 import { BlankType, BLANK_DEFAULT_VALUE } from "."
+import { IReducerAction } from "../../../../../../core/data/context/contracts"
 
 export const LoginActionTypes = {
     CHECK: "CHECK"
@@ -6,7 +7,7 @@ export const LoginActionTypes = {
 
 const INITIAL_VALUE: BlankType = BLANK_DEFAULT_VALUE.state
 
-const LoginReducer = (state = INITIAL_VALUE, action) => {
+const LoginReducer = (state = INITIAL_VALUE, action: IReducerAction) => {
     switch (action.type) {
         case LoginActionTypes.CHECK:
             return {

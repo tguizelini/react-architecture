@@ -1,3 +1,5 @@
+import { IReducerAction } from "../../../../../core/data/context/contracts"
+
 export const ProfileActionTypes = {
     LIST: "Profile_LIST"
 }
@@ -10,7 +12,7 @@ const INITIAL_VALUE: IProfileStore = {
     ProfileList: []
 }
 
-const ProfileReducer = (state = INITIAL_VALUE, action) => {
+const ProfileReducer = (state = INITIAL_VALUE, action: IReducerAction) => {
     switch (action.type) {
         case ProfileActionTypes.LIST:
             return {

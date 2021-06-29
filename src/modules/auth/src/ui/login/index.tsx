@@ -37,7 +37,7 @@ const Login = () => {
   }
 
   return (
-    <DS.ContainerFlex container center>
+    <DS.ContainerFlex container center horizontal style={styles.container}>
 
       <DS.CardView padding={DIMENS.padding} width={40}>
         <DS.CardHeader title="Test" />
@@ -61,11 +61,14 @@ const Login = () => {
         </DS.CardActions>
       </DS.CardView>
 
-    </DS.ContainerFlex>
+    </DS.ContainerFlex >
   )
 }
 
 const styles = {
+  container: {
+    background: 'rgba(244,555,234, 0.6)'
+  },
   img: {
     width: '50%',
   }

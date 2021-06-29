@@ -90,7 +90,7 @@ function useApi<T>(
     }
   };
 
-  const onSuccess = (data) => {
+  const onSuccess = (data: any) => {
     const status = data?.status || HttpStatus.SUCCESS
 
     setResponseApi({
@@ -104,7 +104,7 @@ function useApi<T>(
     return { status, data };
   }
 
-  const onError = (data) => {
+  const onError = (data: any) => {
     const status = data?.status || HttpStatus.SERVER_ERROR
     const isSuccess = !!(status === HttpStatus.CREATED || HttpStatus.SUCCESS || HttpStatus.SUCCESS_NO_CONTENT)
 

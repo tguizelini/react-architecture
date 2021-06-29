@@ -9,7 +9,7 @@ interface IEditText {
   readOnly?: boolean
   error?: boolean
   helperText?: string
-  onChange?: (string) => null
+  onChange?: (value: string) => null
 }
 
 const EditText: React.FC<IEditText> = props => {
@@ -19,7 +19,7 @@ const EditText: React.FC<IEditText> = props => {
 
   const [etValue, setEtValue] = useState(props.value || null)
 
-  const onValueChange = (e) => {
+  const onValueChange = (e: any) => {
     const eValue = e.target.value
 
     if (props.onChange) props.onChange(eValue)
