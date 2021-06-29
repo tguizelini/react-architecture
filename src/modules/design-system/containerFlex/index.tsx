@@ -51,12 +51,12 @@ const ContainerFlex = styled.div<IContainerFlex>`
       ? 'space-between'
       : // eslint-disable-next-line no-nested-ternary
       p.center && p.horizontal
-      ? 'center'
-      : p.end
-      ? 'flex-end'
-      : p.spaceAround
-      ? 'space-around'
-      : 'none'};
+        ? 'center'
+        : p.end
+          ? 'flex-end'
+          : p.spaceAround
+            ? 'space-around'
+            : 'none'};
 `;
 
 export default ContainerFlex;

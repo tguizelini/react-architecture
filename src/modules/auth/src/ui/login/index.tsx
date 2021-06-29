@@ -15,6 +15,8 @@ const Login = () => {
   const context = useContext(LoginContext)
   const api = useApi<LoginResponse>(Endpoints.login, HttpMethod.POST)
 
+  const logoTmp = "https://i1.wp.com/coisasdogeek.com.br/doc/wp-content/uploads/2016/07/android-logo.png"
+
   const signIn = async () => {
     /*
     const payload: LoginPayload = {
@@ -37,23 +39,36 @@ const Login = () => {
   return (
     <DS.ContainerFlex container center>
 
-      <DS.ContainerFlex width={50}>
-        <DS.Paper>
-          <DS.ContainerFlex padding={DIMENS.padding} center>
-            <span>LOGIN</span>
-            <br />
-            <span>Name: {context.state.name}</span>
-            <br />
-            <DS.EditText label="test" />
-            <DS.Button color="primary" disabled variant="contained" onClick={signIn}>Entrar</DS.Button>
-            <DS.Button color="primary" onClick={signIn}>Text</DS.Button>
-            <DS.Button color="secondary" variant="contained" onClick={signIn}>Text</DS.Button>
+      <DS.CardView padding={DIMENS.padding} width={40}>
+        <DS.CardHeader title="Test" />
+
+        <DS.CardContent>
+          <DS.ContainerFlex>
+            <img src={logoTmp} style={styles.img} />
+            <DS.SpacingField />
+
+            <DS.EditText label="email" />
+            <DS.EditText label="senha" type="password" />
           </DS.ContainerFlex>
-        </DS.Paper>
-      </DS.ContainerFlex>
+        </DS.CardContent>
+
+        <DS.CardActions>
+          <DS.ContainerFlex center>
+            <DS.Button variant="contained">Sign in</DS.Button>
+            <DS.SpacingField />
+            <DS.Button>Nothing will happen</DS.Button>
+          </DS.ContainerFlex>
+        </DS.CardActions>
+      </DS.CardView>
 
     </DS.ContainerFlex>
   )
+}
+
+const styles = {
+  img: {
+    width: '50%',
+  }
 }
 
 export default Login

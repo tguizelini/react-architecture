@@ -25,13 +25,13 @@ const LusoTheme = createMuiTheme({
     //button default
     MuiButton: {
       contained: {
-        color: COLORS.secondary.contrastText,
-        backgroundColor: COLORS.secondary.color,
+        color: COLORS.primary.contrastText,
+        backgroundColor: COLORS.primary.color,
         '&:hover': {
-          backgroundColor: COLORS.secondary.hover,
+          //backgroundColor: COLORS.secondary.hover,
           // Reset on touch devices, it doesn't add specificity
           '@media (hover: none)': {
-            backgroundColor: COLORS.secondary.color,
+            backgroundColor: COLORS.primary.color,
           },
         }
       }
