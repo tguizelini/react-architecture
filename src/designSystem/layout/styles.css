@@ -1,0 +1,15 @@
+.layoutAbsolute {
+  position: relative !important;
+  z-index: 999;
+}
+
+@media (max-width: 1200px) {
+  .drawer {
+    display: none;
+  }
+
+  .drawer-active {
+    display: block;
+    margin-top: 28px;
+  }
+}

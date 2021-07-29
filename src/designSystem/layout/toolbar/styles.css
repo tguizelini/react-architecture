@@ -1,0 +1,23 @@
+#toolbarIconDrawer {
+  display: none;
+}
+
+#toolbarContainerInfos {
+  margin-left: 340px;
+}
+
+@media (min-width: 1201px) {  
+  #toolbarContainerInfos {
+    border-left: 0px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  #toolbarIconDrawer {
+    display: block;
+  }    
+
+  #toolbarContainerInfos {
+    margin-left: 0px;
+  }
+}

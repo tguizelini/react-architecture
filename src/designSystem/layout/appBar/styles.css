@@ -1,0 +1,16 @@
+div#appbar {
+  height: 120px;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+div#appBarContent {
+  margin-left: 320px;
+}
+
+@media (max-width: 1200px) {
+  div#appBarContent {
+    margin-left: 0%;
+  }
+}
