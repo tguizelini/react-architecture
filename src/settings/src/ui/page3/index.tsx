@@ -13,7 +13,7 @@ const SettingsPage3 = () => {
   return (
     <DS.Layout
       pageTitle={SettingsModule.name}
-      menuActive={DS.DrawerAppItem.CONFIGURACOES}
+      menuActive={DS.DrawerAppItem.SETTINGS}
       pagePath=" > Page 3"
     >
 

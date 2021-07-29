@@ -17,9 +17,12 @@ import { unmaskNumberFields, cpfMask } from 'sdk/utils/mask.utils'
 import Endpoints from '../../data/remote/endpoints'
 import LoginPayload from '../../domain/payload/login.payload'
 import LoginResponse from '../../domain/response/login.response'
+import { useDispatch } from 'react-redux'
+import UserReducer from '../../data/store/reducers/user.reducer'
 
 const Login = () => {
   const history = useHistory()
+  const dispatch = useDispatch()
 
   const apiLogin = useApi<LoginResponse>(
     Endpoints.login,
@@ -61,14 +64,18 @@ const Login = () => {
 
     const response = await apiLogin.callApi(payload)
 
-    console.log('response -> ', response)
-
     if (response?.status == HttpStatus.SUCCESS) {
       StorageHelper.set(AppKeys.TOKEN, response.data?.token)
       StorageHelper.set(AppKeys.USER_NAME, response.data?.name)
 
       setModalMessage("Let's go!")
       setModalShow(true)
+
+      //usig redux hook
+      dispatch({
+        type: UserReducer.ActionTypes.SET_NAME,
+        payload: response.data?.name
+      })
 
       history.push("/dashboard")
 

@@ -13,7 +13,7 @@ import iconHomeActive from './assets/home-active.png'
 
 export const DrawerAppSelect = {
   DASHBOARD: 1,
-  CONFIGURACOES: 9
+  SETTINGS: 9
 }
 
 interface IDrawerApp {
@@ -36,7 +36,7 @@ const DrawerApp: React.FC<IDrawerApp> = props => {
           <DS.Logo sizeInPixel={50} />
         </DS.ContainerFlex>
 
-        <DS.SpacingField bottom={DIMENS.fieldSpacing} />
+        <DS.SpacingField bottom={32} />
 
         {/* Drawer Items - begin */}
         <DS.ContainerFlex>
@@ -46,36 +46,24 @@ const DrawerApp: React.FC<IDrawerApp> = props => {
             label="Home"
             onClick={() => history.push("/dashboard")}
           />
+
+          <DrawerItem
+            isActive={props.itemActive == DrawerAppSelect.SETTINGS}
+            iconMaterial={
+              props.itemActive == DrawerAppSelect.SETTINGS ?
+                <DS.ICONS.Settings style={styles.itemMenu.icons.iconMaterialActive} />
+                :
+                <DS.ICONS.Settings style={styles.itemMenu.icons.iconMaterialInactive} />
+            }
+            label="Settings"
+            onClick={() => history.push("/settings")}
+          />
         </DS.ContainerFlex>
         {/* Drawer Items - end */}
 
-        <DS.SpacingField bottom={26} />
+        <DS.SpacingField bottom={14} />
 
         <DS.ContainerFlex style={styles.containerItemBottom}>
-          {/* item Configuraçoes - begin */}
-          <DS.ContainerFlex
-            center row
-            style={styles.itemMenu.container}
-            onClick={() => history.push('/settings')}
-          >
-            <DS.ICONS.Settings
-              style={{
-                ...styles.itemMenu.icons.iconConfig,
-                color: props.itemActive == DrawerAppSelect.CONFIGURACOES ? COLORS.primary.color : 'black'
-              }}
-            />
-
-            <DS.SpacingField left={8} />
-
-            <DS.Typography
-              variant="h3"
-              color={props.itemActive == DrawerAppSelect.CONFIGURACOES ? 'primary' : 'textPrimary'}
-            >Settings</DS.Typography>
-          </DS.ContainerFlex>
-          {/* item Configuraçoes - end */}
-
-          <DS.SpacingField bottom={20} />
-
           {/* item sair - begin */}
           <DS.ContainerFlex
             center row
@@ -104,6 +92,18 @@ const styles = {
   },
   itemMenu: {
     icons: {
+      iconMaterialActive: {
+        color: COLORS.primary.color,
+        width: '32px',
+        marginRight: '8px',
+        marginLeft: '6px'
+      },
+      iconMaterialInactive: {
+        color: COLORS.disabled.color,
+        width: '32px',
+        marginRight: '8px',
+        marginLeft: '6px'
+      },
       iconConfig: {
         width: '32px'
       },

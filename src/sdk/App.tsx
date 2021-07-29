@@ -1,14 +1,14 @@
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import Routes from "./routes";
-import GlobalContext from "./data/context";
 import AppTheme from "./values/theme";
+import Store from './data/store';
 
 const App = () => {
   return (
     <MuiThemeProvider theme={AppTheme}>
-      <GlobalContext>
+      <Store>
         <Routes />
-      </GlobalContext>
+      </Store>
     </MuiThemeProvider>
   )
 }

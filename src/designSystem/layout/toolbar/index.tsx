@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import DS from '../..'
+import { useSelector } from 'react-redux'
 import StorageHelper from 'sdk/data/storage/storage.helper'
+import { RootState } from 'sdk/data/store/reducers'
 import AppKeys from 'sdk/data/storage/storageKeys'
 import COLORS from 'sdk/values/colors'
 import DIMENS from 'sdk/values/dimens'
-import AppBarApp from '../appBar'
 
+import DS from 'designSystem'
+
+import AppBarApp from '../appBar'
 import './styles.css'
 
 interface IToolbarApp {
@@ -16,16 +19,7 @@ interface IToolbarApp {
 }
 
 const ToolbarApp: React.FC<IToolbarApp> = props => {
-  const [userName, setUserName] = useState("")
-
-  useEffect(() => {
-    getUserData()
-  }, [])
-
-  const getUserData = async () => {
-    const userNameResponse = await StorageHelper.get(AppKeys.USER_NAME)
-    setUserName(userNameResponse)
-  }
+  const state = useSelector((state: RootState) => state.user)
 
   const handleToggleDrawer = () => {
     if (props.onToggleDrawerClick) props.onToggleDrawerClick()
@@ -51,7 +45,7 @@ const ToolbarApp: React.FC<IToolbarApp> = props => {
           <DS.ContainerFlex row center flex={3} style={styles.containerBlock} id="toolbarContainerInfos">
             <DS.ContainerFlex center end flex={2}>
               <DS.Typography style={styles.toolbarMenuInfo}>Olá,</DS.Typography>
-              <DS.Typography style={styles.toolbarMenuInfoName}>{userName || "Tiago Guizelini"}</DS.Typography>
+              <DS.Typography style={styles.toolbarMenuInfoName}>{state.name}</DS.Typography>
             </DS.ContainerFlex>
 
           </DS.ContainerFlex>

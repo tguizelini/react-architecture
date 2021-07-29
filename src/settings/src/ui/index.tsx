@@ -12,7 +12,7 @@ const Settings = () => {
     <DS.Layout
       pageTitle={SettingsModule.name}
       pagePath=" > Page 1"
-      menuActive={DS.DrawerAppItem.CONFIGURACOES}
+      menuActive={DS.DrawerAppItem.SETTINGS}
     >
 
       <DS.ContainerFlex row>

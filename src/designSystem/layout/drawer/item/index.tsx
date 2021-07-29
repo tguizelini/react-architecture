@@ -5,6 +5,7 @@ import DIMENS from 'sdk/values/dimens'
 
 interface IDrawerItem {
   icon?: any
+  iconMaterial?: any
   label?: string
   onClick?: () => void
   isActive?: boolean
@@ -36,7 +37,8 @@ const DrawerItem: React.FC<IDrawerItem> = props => {
     >
 
       <DS.ContainerFlex row center heightInPixel={55}>
-        <img src={props.icon} style={styles.icon} />
+        {!props.iconMaterial && (<img src={props.icon} style={styles.icon} />)}
+        {props.iconMaterial && (props.iconMaterial)}
 
         <DS.Typography
           variant="h3"
