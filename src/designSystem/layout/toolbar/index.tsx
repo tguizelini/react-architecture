@@ -56,7 +56,7 @@ const ToolbarApp: React.FC<IToolbarApp> = props => {
 
       <AppBarApp
         pageTitle={props.pageTitle || 'Nome Modulo'}
-        pagePath={(props.pageTitle || "Nome Modulo ") + (props.pagePath || ' > Pagina 1')}
+        pagePath={(props.pageTitle || "Nome Modulo ") + " " + (props.pagePath || '')}
       />
     </>
   )
