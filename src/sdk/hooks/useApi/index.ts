@@ -58,7 +58,6 @@ function useApi<T>(
           await api.get(url)
             .then(response => res = response)
             .catch(error => {
-              console.log(error)
               if (error.response)
                 res = error.response
             })
@@ -68,7 +67,6 @@ function useApi<T>(
           await api.post(url, body || reqBody || null)
             .then(response => res = response)
             .catch(error => {
-              console.log(error)
               if (error.response)
                 res = error.response
             })
@@ -77,7 +75,6 @@ function useApi<T>(
           await api.put(url, body || reqBody || null)
             .then(response => res = response)
             .catch(error => {
-              console.log(error)
               if (error.response)
                 res = error.response
             })
@@ -86,7 +83,6 @@ function useApi<T>(
           await api.delete(url, body || reqBody || null)
             .then(response => res = response)
             .catch(error => {
-              console.log(error)
               if (error.response)
                 res = error.response
             })
@@ -94,20 +90,13 @@ function useApi<T>(
         default: break
       }
 
-      console.log('hook::res -> ', res)
-
-      if (res) {
-        if (
-          res.status != HttpStatus.SUCCESS &&
-          res.status != HttpStatus.CREATED &&
-          res.status != HttpStatus.SUCCESS_NO_CONTENT
-        ) {
-          return onError(res.data)
-        }
-      } else {
-        return onError(res)
+      if (
+        res.status != HttpStatus.SUCCESS &&
+        res.status != HttpStatus.CREATED &&
+        res.status != HttpStatus.SUCCESS_NO_CONTENT
+      ) {
+        return onError(res.data)
       }
-
 
       return onSuccess(res.data)
     } catch (e) {
@@ -120,7 +109,7 @@ function useApi<T>(
 
     setResponseApi({
       loading: false,
-      data: data.data,
+      data: data.data || data,
       error: null,
       status: status,
       success: true,
@@ -130,14 +119,15 @@ function useApi<T>(
   }
 
   const onError = async (data: any) => {
-    const status = HttpStatus.SERVER_ERROR
+    const status = data?.status
+    const isSuccess = !!(status === HttpStatus.CREATED || HttpStatus.SUCCESS || HttpStatus.SUCCESS_NO_CONTENT)
 
     setResponseApi({
       loading: false,
       data: data,
       error: data,
       status: status,
-      success: false,
+      success: isSuccess,
     });
 
     return { status, data };
