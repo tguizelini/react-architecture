@@ -1,7 +1,7 @@
 const storage = localStorage
 
-const get = async (key: string, defaultValue?: any) => {
-    const result = await storage.getItem(key);
+const get = (key: string, defaultValue?: any) => {
+    const result = storage.getItem(key);
     return result ? result : defaultValue
 }
 

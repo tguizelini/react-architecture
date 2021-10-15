@@ -2,6 +2,10 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import axios from 'axios';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
+import StorageHelper from 'sdk/data/storage/storage.helper';
+import { RootState } from 'sdk/data/store/reducers';
 import StorageKeys from '../../data/storage/storageKeys';
 import HttpHeader from './httpHeader.model';
 import HttpMethod from './httpMethod.enum';
@@ -13,7 +17,11 @@ function useApi<T>(
   method: HttpMethod,
   body?: any,
   headers: HttpHeader[] = [],
+  withAuthorization: boolean = true
 ) {
+  const history = useHistory()
+  const stateUser = useSelector((state: RootState) => state.user)
+
   const [responseApi, setResponseApi] = useState<HttpResponse>({
     loading: false,
     error: null,
@@ -25,10 +33,10 @@ function useApi<T>(
   const callApi = (reqBody?: any) => FetchData(reqBody);
 
   const FetchData = async (reqBody?: any): Promise<{
-    status: number;
-    data: object & T | null;
+    status: number
+    data: object & T | null
   }> => {
-    setResponseApi({ ...responseApi, loading: true });
+    setResponseApi({ ...responseApi, loading: true })
 
     try {
       let res: any
@@ -42,9 +50,9 @@ function useApi<T>(
 
       api.interceptors.request.use(
         config => {
-          const token = localStorage.getItem(StorageKeys.TOKEN);
+          const token = StorageHelper.get(StorageKeys.TOKEN)
 
-          if (token) config.headers['api_key'] = `token ${token}`;
+          if (token && withAuthorization) config.headers['Authorization'] = `Bearer ${token}`
 
           return Promise.resolve(config)
         },
@@ -90,6 +98,8 @@ function useApi<T>(
         default: break
       }
 
+      if (res.status == HttpStatus.UNAUTHENTICATED) return onUnauthenticated()
+
       if (
         res.status != HttpStatus.SUCCESS &&
         res.status != HttpStatus.CREATED &&
@@ -103,6 +113,14 @@ function useApi<T>(
       return onError(e)
     }
   };
+
+  const onUnauthenticated = () => {
+    const status = HttpStatus.UNAUTHENTICATED
+
+    history.push("/sessao-expirada")
+
+    return { status, data: null };
+  }
 
   const onSuccess = (data: any) => {
     const status = HttpStatus.SUCCESS
