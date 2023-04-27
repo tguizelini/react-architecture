@@ -10,7 +10,7 @@ A estrutura de diretórios recomendada pelo projeto React Architecture segue o p
 
 Para isso, o projeto utiliza:
 
-- Clean Architecture para cada feature module
+- Clean Architecture como estrutura para organizar para cada feature module
 - Custom hooks como por exemplo o "UseApi", para fazer a comunicação HTTP com o backend 
 - Theme fácil de customizar
 - Um módulo isolado só para o Design System, onde voce cria e mantém todos os componentes que serão utilizados pela aplicação e que podem ser até compartilhados com outros projetos
