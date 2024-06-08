@@ -9,11 +9,11 @@ The directory structure recommended by the React Architecture project follows th
 
 To achieve this, the project uses:
 
-Clean Architecture as a structure to organize for each feature module
-Custom hooks, such as "UseApi", to carry out HTTP communication with the backend
-Easy to customize theme
-An isolated module just for the Design System, where you create and maintain all the components that will be used by the application and that can even be shared with other projects
-Module SDK that works like a Core/Commons, centralizing configurations, helpers, wheel management and much more!
+- Clean Architecture as a structure to organize for each feature module
+- Custom hooks, such as "UseApi", to carry out HTTP communication with the backend
+- Easy to customize theme
+- An isolated module just for the Design System, where you create and maintain all the components that will be used by the application and that can even be shared with other projects
+- Module SDK that works like a Core/Commons, centralizing configurations, helpers, wheel management and much more!
 
 ------------------------------------------------------------------------------
 
