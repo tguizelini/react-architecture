@@ -1,6 +1,6 @@
 # React Architecture
 
-The React Architecture project is a design framework for multi-module React applications based on the component architecture created by developer Tiago Guizelini.
+The React Architecture project is a design framework for multi-module React applications based on the component architecture created by Tiago Guizelini.
 
 The framework was designed to provide a consistent and efficient approach to developing complex React applications, helping teams organize their code, improve code reuse and create scalable and testable applications, where a well-planned architecture is essential to ensure the maintainability and scalability of the application.
 
