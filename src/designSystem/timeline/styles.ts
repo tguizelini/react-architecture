@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import COLORS from 'sdk/values/colors'
+import COLORS from 'core/values/colors'
 
 export const Divider = styled.div`
   height: 20px;

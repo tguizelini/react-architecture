@@ -1,6 +1,6 @@
-import * as MT from '@material-ui/core'
-import * as MTIcons from '@material-ui/icons'
-import CardView from './cardView/indext'
+import * as MT from '@mui/material';
+import * as MTIcons from '@mui/icons-material';
+import CardView from './cardView'
 import ContainerFlex from './containerFlex'
 import EditBox from './editBox'
 import EditText from './editText/indext'
@@ -13,7 +13,6 @@ import Layout from './layout'
 import { DrawerAppSelect } from './layout/drawer'
 import BoxItem from './boxItem'
 import Timeline from './timeline'
-import SelectorApp from './selectorApp'
 
 const DS = {
   ...MT,
@@ -32,7 +31,6 @@ const DS = {
   RadioBox,
   Layout,
   BoxItem,
-  SelectorApp,
   TimelineApp: Timeline
 }
 

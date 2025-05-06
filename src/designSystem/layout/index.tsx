@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import DS from 'designSystem'
-import COLORS from 'sdk/values/colors'
-import DIMENS from 'sdk/values/dimens'
+import COLORS from 'core/values/colors'
+import DIMENS from 'core/values/dimens'
 import DrawerApp from './drawer'
 import ToolbarApp from './toolbar'
 import './styles.css'
 
 interface ILayout {
-  menuActive?: any
+  menuActive?: number
   pageTitle?: string
   pagePath?: string
+  children: React.ReactNode
 }
 
 const Layout: React.FC<ILayout> = props => {

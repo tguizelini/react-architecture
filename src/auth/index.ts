@@ -1,5 +1,5 @@
 //routes
-import IModuleRoutes from 'sdk/routes/module.route.interface';
+import IModuleRoutes from 'core/routes/module.route.interface';
 
 import Login from './src/ui/login';
 

@@ -6,5 +6,5 @@ export default interface IModuleRoutes {
 export interface IModuleRouteItem {
   path: string
   private: boolean
-  component: any
+  component: React.ComponentType<any>
 }

@@ -1,4 +1,4 @@
-import ErrorResponse from "sdk/data/remote/error.response.interface";
+import ErrorResponse from "core/data/remote/error.response.interface";
 
 export default interface LoginResponse extends ErrorResponse {
     token?: string

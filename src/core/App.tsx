@@ -1,15 +1,15 @@
-import { MuiThemeProvider } from '@material-ui/core/styles'
+import { ThemeProvider } from '@mui/material/styles';
 import Routes from "./routes";
 import AppTheme from "./values/theme";
 import Store from './data/store';
 
 const App = () => {
   return (
-    <MuiThemeProvider theme={AppTheme}>
+    <ThemeProvider theme={AppTheme}>
       <Store>
         <Routes />
       </Store>
-    </MuiThemeProvider>
+    </ThemeProvider>
   )
 }
 

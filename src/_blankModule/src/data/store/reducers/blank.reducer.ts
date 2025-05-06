@@ -1,4 +1,4 @@
-import IReduxAction from "sdk/data/store/action.interface"
+import IReduxAction from "core/data/store/action.interface"
 import User from "_blankModule/src/domain/user"
 
 //Action Types

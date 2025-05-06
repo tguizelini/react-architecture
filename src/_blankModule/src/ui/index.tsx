@@ -1,13 +1,13 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import DS from 'designSystem'
 import BlankModule from '_blankModule'
 
 const BlankHome: React.FC = () => {
-    const history = useHistory()
+    const navigate = useNavigate()
 
     const handleClick = () => {
-        history.push("/dashboard")
+        navigate("/dashboard")
     }
 
     return (

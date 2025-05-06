@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 import AuthModule from "auth"
 import DashboardModule from "dashboard"
@@ -28,30 +28,33 @@ interface IPrivateRoute {
   path: string
 }
 
-const PrivateRoute: React.FC<IPrivateRoute> = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={props => (
-    isAuthenticated ?
-      <Component {...props} />
-      :
-      <Redirect to={{ pathname: '/', state: { from: props.location } }} />
-  )} />
-)
+const PrivateRoute: React.FC<IPrivateRoute> = ({ component: Component, ...rest }) => {
+  const location = useLocation();
 
-const Routes = () => {
+  return (
+    <Route {...rest}
+      element={isAuthenticated ? 
+        <Component {...rest} /> : 
+        <Navigate to="/" state={{ from: location }} />
+    } />
+  )
+}
+
+const AppRoutes = () => {
   return (
     <BrowserRouter>
-      <Switch>
+      <Routes>
         {
           AppModules.map(module => module.routes.map(route =>
             route.private ?
               <PrivateRoute exact path={route.path} component={route.component} />
               :
-              <Route exact path={route.path} component={route.component} />
+              <Route key={route.path} path={route.path} element={<route.component />} />
           ))
         }
-      </Switch>
+      </Routes>
     </BrowserRouter>
   )
 }
 
-export default Routes
+export default AppRoutes;

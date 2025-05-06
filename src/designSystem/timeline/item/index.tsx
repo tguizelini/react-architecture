@@ -1,5 +1,5 @@
 import React from 'react'
-import COLORS from 'sdk/values/colors'
+import COLORS from 'core/values/colors'
 import DS from 'designSystem'
 import TimelineItemValue from './value'
 import iconMoney from './assets/timeline-money.png'

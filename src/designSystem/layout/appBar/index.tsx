@@ -1,7 +1,7 @@
 import React from 'react'
 import DS from '../..'
-import COLORS from 'sdk/values/colors'
-import DIMENS from 'sdk/values/dimens'
+import COLORS from 'core/values/colors'
+import DIMENS from 'core/values/dimens'
 import './styles.css'
 
 interface IAppBarApp {

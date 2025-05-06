@@ -1,11 +1,9 @@
-/* eslint-disable consistent-return */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
-import StorageHelper from 'sdk/data/storage/storage.helper';
-import { RootState } from 'sdk/data/store/reducers';
+import { useNavigate } from 'react-router';
+import StorageHelper from 'core/data/storage/storage.helper';
+import { RootState } from 'core/data/store/reducers';
 import StorageKeys from '../../data/storage/storageKeys';
 import HttpHeader from './httpHeader.model';
 import HttpMethod from './httpMethod.enum';
@@ -19,7 +17,7 @@ function useApi<T>(
   headers: HttpHeader[] = [],
   withAuthorization: boolean = true
 ) {
-  const history = useHistory()
+  const navigate = useNavigate()
   const stateUser = useSelector((state: RootState) => state.user)
 
   const [responseApi, setResponseApi] = useState<HttpResponse>({
@@ -41,9 +39,15 @@ function useApi<T>(
     try {
       let res: any
 
+      // Convert headers to an object (AxiosRequestConfig expects headers to be an object)
+      const headersObj = headers.reduce((acc: { [key: string]: string }, header: HttpHeader) => {
+        acc[header.key || ''] = header.value;
+        return acc;
+      }, {})
+
       const api = axios.create({
         headers: {
-          ...headers,
+          ...headersObj,
           "Content-Type": "application/json",
         }
       })
@@ -117,7 +121,7 @@ function useApi<T>(
   const onUnauthenticated = () => {
     const status = HttpStatus.UNAUTHENTICATED
 
-    history.push("/sessao-expirada")
+    navigate("/error-page")
 
     return { status, data: null };
   }

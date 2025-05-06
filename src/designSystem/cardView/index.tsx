@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import DS from '..'
-import DIMENS from 'sdk/values/dimens'
+import DIMENS from 'core/values/dimens'
 import './styles.css'
 
 interface ICardView {
@@ -11,6 +11,7 @@ interface ICardView {
   height?: number
   heightInPixel?: number
   responsiveWidth?: boolean
+  children: React.ReactNode
 }
 
 const CardView: React.FC<ICardView> = props => {

@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import styled from 'styled-components';
-import COLORS from 'sdk/values/colors';
+import COLORS from 'core/values/colors';
 
 type Positions = 'flex-start' | 'flex-end' | 'center' | 'space-between';
 

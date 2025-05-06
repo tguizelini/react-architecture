@@ -1,12 +1,12 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import DS from 'designSystem'
 import SettingsModule from 'settings'
 
 import iconDefault from '../../assets/icons/dados-da-conta.png'
 
 const Settings = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   return (
     <DS.Layout
@@ -20,13 +20,13 @@ const Settings = () => {
         <DS.BoxItem
           label="Page 2"
           icon={iconDefault}
-          onClick={() => history.push("/settings/pagina-2")}
+          onClick={() => navigate("/settings/page-2")}
         />
 
         <DS.BoxItem
           label="Page 3"
           icon={iconDefault}
-          onClick={() => history.push("/settings/pagina-3")}
+          onClick={() => navigate("/settings/page-3")}
         />
 
       </DS.ContainerFlex>

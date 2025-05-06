@@ -1,18 +1,18 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { RootState } from 'sdk/data/store/reducers'
+import { RootState } from 'core/data/store/reducers'
 import DashboardModule from 'dashboard'
 
 import DS from 'designSystem'
-import DIMENS from 'sdk/values/dimens'
+import DIMENS from 'core/values/dimens'
 
 const Dashboard: React.FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const state = useSelector((state: RootState) => state.user)
 
   const handleNavigateToSettings = () => {
-    history.push("/settings")
+    navigate("/settings")
   }
 
   return (

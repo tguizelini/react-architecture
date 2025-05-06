@@ -1,5 +1,5 @@
 import React from 'react'
-import logoApp from "sdk/assets/logo.png"
+import logoApp from "core/assets/logo.png"
 
 interface ILogo {
   size?: number,

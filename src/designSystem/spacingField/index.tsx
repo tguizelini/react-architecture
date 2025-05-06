@@ -1,5 +1,5 @@
 import React from 'react'
-import DIMENS from 'sdk/values/dimens'
+import DIMENS from 'core/values/dimens'
 
 interface ISpacingField {
   bottom?: number

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import DS from 'designSystem'
-import DIMENS from 'sdk/values/dimens'
+import DIMENS from 'core/values/dimens'
 
 interface IRadioBox {
   type?: string

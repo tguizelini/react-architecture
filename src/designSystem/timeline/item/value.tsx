@@ -1,5 +1,5 @@
 import React from 'react'
-import COLORS from 'sdk/values/colors'
+import COLORS from 'core/values/colors'
 import DS from 'designSystem'
 
 interface ITimelineItemValue {

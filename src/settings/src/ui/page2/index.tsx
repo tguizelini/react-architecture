@@ -1,13 +1,13 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import DS from 'designSystem'
 import SettingsModule from 'settings'
 
 const SettingsPage2 = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const handleBackButton = () => {
-    history.push("/settings")
+    navigate("/settings")
   }
 
   return (

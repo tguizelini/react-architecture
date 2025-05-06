@@ -1,9 +1,9 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import DS from 'designSystem'
-import COLORS from 'sdk/values/colors'
-import DIMENS from 'sdk/values/dimens'
+import COLORS from 'core/values/colors'
+import DIMENS from 'core/values/dimens'
 import DrawerItem from './item'
 
 import './styles.css'
@@ -21,10 +21,10 @@ interface IDrawerApp {
 }
 
 const DrawerApp: React.FC<IDrawerApp> = props => {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const handleLogout = () => {
-    history.push("/")
+    navigate("/")
   }
 
   return (
@@ -44,7 +44,7 @@ const DrawerApp: React.FC<IDrawerApp> = props => {
             isActive={props.itemActive == DrawerAppSelect.DASHBOARD}
             icon={props.itemActive == DrawerAppSelect.DASHBOARD ? iconHomeActive : iconHome}
             label="Home"
-            onClick={() => history.push("/dashboard")}
+            onClick={() => navigate("/dashboard")}
           />
 
           <DrawerItem
@@ -56,7 +56,7 @@ const DrawerApp: React.FC<IDrawerApp> = props => {
                 <DS.ICONS.Settings style={styles.itemMenu.icons.iconMaterialInactive} />
             }
             label="Settings"
-            onClick={() => history.push("/settings")}
+            onClick={() => navigate("/settings")}
           />
         </DS.ContainerFlex>
         {/* Drawer Items - end */}

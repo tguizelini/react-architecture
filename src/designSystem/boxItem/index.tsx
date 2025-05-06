@@ -1,7 +1,7 @@
 import React from 'react'
 import DS from 'designSystem'
-import iconTransaction from 'sdk/assets/icons/arrow-transaction.png'
-import DIMENS from 'sdk/values/dimens'
+import iconTransaction from 'core/assets/icons/arrow-transaction.png'
+import DIMENS from 'core/values/dimens'
 
 interface IBoxItem {
   icon?: any

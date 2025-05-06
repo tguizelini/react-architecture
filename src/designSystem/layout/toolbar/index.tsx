@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import StorageHelper from 'sdk/data/storage/storage.helper'
-import { RootState } from 'sdk/data/store/reducers'
-import AppKeys from 'sdk/data/storage/storageKeys'
-import COLORS from 'sdk/values/colors'
-import DIMENS from 'sdk/values/dimens'
+import StorageHelper from 'core/data/storage/storage.helper'
+import { RootState } from 'core/data/store/reducers'
+import AppKeys from 'core/data/storage/storageKeys'
+import COLORS from 'core/values/colors'
+import DIMENS from 'core/values/dimens'
 
 import DS from 'designSystem'
 
