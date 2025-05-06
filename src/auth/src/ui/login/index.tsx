@@ -85,7 +85,8 @@ const Login = () => {
 
     const errorMsg = response.data?.message || "Error on check credentials"
     setModalMessage(errorMsg)
-    setModalShow(true)
+    //setModalShow(true)  //in case of real API implementation done, uncomment this line
+    navigate("/dashboard") //in case of real API implementation done, remove this line
   }
 
   const onForgetPasswordClick = () => alert("open passwordd recovery screen")
